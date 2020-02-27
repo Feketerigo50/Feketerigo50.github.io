@@ -121,33 +121,7 @@
 
   </head>
   <script type="text/javascript">
-    var photo_count = 0;
-
-    var xmlhttp = new XMLHttpRequest();
-    var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/35?page=1&per_page=5&api_version=2&format=json";
-
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var myArr = JSON.parse(xmlhttp.responseText);
-        console.log(myArr);
-        pixnetParse(myArr);
-      }
-    }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-
-    var xmlhttps = new XMLHttpRequest();
-    var url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=PLg6fQDNWKznCc48PNDO36nnC79nSRx_qP&key=AIzaSyD6vVbeXOlZpWA4DK-UvkC4zVVH0JhKbXA&maxResults=50";
-
-	  xmlhttps.onreadystatechange = function() {
-		    if (xmlhttps.readyState == 4 && xmlhttps.status == 200) {
-			       var Arr = JSON.parse(xmlhttps.responseText);
-			       console.log(Arr);
-			       youtubeParse(Arr);
-		    }
-	  }
-	  xmlhttps.open("GET", url, true);
-	  xmlhttps.send();
+	
   </script>
   <body class="text-center">
     <div class="gray_block" id="home">
@@ -371,26 +345,6 @@
         </div>
       </div>
     </div>
-    <div class="silver_block" id="Introduction">
-      <div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto" style="border-bottom: 1px solid #b3b3b3;">
-          <div class="inner">
-            <h1 class="heading_font">&nbsp;&nbsp;YouTube&nbsp;/</h1>
-            <h2 style="display:inline;margin-top: 10px;float: left;color:gray;">&nbsp;videoplayer</h2>
-          </div>
-        </header>
-        <div class="inner cover" style="max-width: 100%; margin: 5px;">
-          	<div style="max-width:60%;float:left;" id="youtube_list">
-          		<iframe style="width:800px;height:450px;" src="https://www.youtube.com/embed/f2LMt9dl6zw?autoplay=1">
-</iframe>
-          	</div>
-			<div style="max-width:25%;float:right;max-height: 450px;overflow-x:hidden;overflow-y:auto;" id="youtube_option">
-          	</div>
-        </div>
-        <div class="mastfoot mt-auto">
-        </div>
-      </div>
-    </div>
     <div class="video_back" id="Video">
       <div class="gray_block" >
         <div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -404,24 +358,6 @@
             <video style="max-width: 80%;"controls>
               <source src="video/Overwatch.mp4" type="video/mp4">
             </video>
-          </div>
-          <div class="mastfoot mt-auto">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="music_back" id="pixnet">
-      <div class="white_block">
-        <div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-          <header class="masthead mb-auto" >
-            <div class="inner">
-              <h1 class="heading_font">&nbsp;&nbsp;PixNet&nbsp;/</h1>
-              <h3 style="display:inline;margin-top: 10px;float: left;">點標題可以玩心理測驗喔!</h3>
-            </div>
-          </header>
-          <div class="inner cover" style="max-width: 100%; float:left;">
-            <div class="card-group" id="pixnet_card">
-            </div>
           </div>
           <div class="mastfoot mt-auto">
           </div>
@@ -504,9 +440,6 @@
         </div>
       </div>
     </div>
-	<div id="youtube-playlist">
-
-	</div>
     <!-- JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -514,22 +447,6 @@
       document.getElementById("music1").volume=0.2;
       document.getElementById("music2").volume=0.2;
 
-      function youtubeParse(arr) {
-		var data = arr.items;
-		var out = "";
-		var str = "";
-		var i;
-		for (i = 0; i < data.length; i++) {
-			str = data[i].snippet.resourceId.videoId.replace(" ","");
-			out += '<p onclick="setYoutube(\''+ str +'\')"><img src="' + data[i].snippet.thumbnails.medium.url + '"></p>';
-		}
-		document.getElementById("youtube_option").innerHTML = out;
-	}
-	function setYoutube( id ){
-		var str = "";
-		str = '<iframe style="width:800px;height:450px;" src="https://www.youtube.com/embed/'+id+'?autoplay=1"></iframe>';
-		document.getElementById("youtube_list").innerHTML = str;
-	}
       $(document).ready(function() {
               var owl = $('.owl-carousel');
               owl.owlCarousel({
@@ -542,19 +459,6 @@
               });
             })
 
-      function pixnetParse( info ){
-        var data = info.articles;
-        var tmp = "";
-        var i = 0;
-        for (i = 0; i < data.length; i++) {
-          if ( data[i].thumb != "" ){
-            if ( data[i].title != "" ){
-              tmp = '<div class="card"><img class="card-img-top" src="image/neko' + Math.round(10*Math.random()) + '.png" ><div class="card-body"><a href="' + data[i].link.split("-")[0] + '" target="_blank"><h5 style="color:black;"class="card-title">' + data[i].title + '</h5></a></div></div>';
-              document.getElementById("pixnet_card").innerHTML += tmp;
-            }
-          }
-        }
-      }
 
       function myGoogle() {
         var x = document.getElementById("googlemap");
