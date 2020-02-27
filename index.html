@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="CSS/bootstrap/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Custom styles for this template -->
     <link href="CSS/bootstrap/cover.css" rel="stylesheet">
     <link  type="text/css" href="CSS/footer.css" rel="stylesheet">
@@ -122,7 +122,7 @@
   </head>
   <script type="text/javascript">
     var photo_count = 0;
-    
+
     var xmlhttp = new XMLHttpRequest();
     var url = "https://emma.pixnet.cc/mainpage/blog/categories/hot/35?page=1&per_page=5&api_version=2&format=json";
 
@@ -135,19 +135,19 @@
     }
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-    
+
     var xmlhttps = new XMLHttpRequest();
     var url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=PLg6fQDNWKznCc48PNDO36nnC79nSRx_qP&key=AIzaSyD6vVbeXOlZpWA4DK-UvkC4zVVH0JhKbXA&maxResults=50";
 
-	xmlhttps.onreadystatechange = function() {
-		if (xmlhttps.readyState == 4 && xmlhttps.status == 200) {
-			var Arr = JSON.parse(xmlhttps.responseText);
-			console.log(Arr);
-			youtubeParse(Arr);
-		}
-	}
-	xmlhttps.open("GET", url, true);
-	xmlhttps.send();
+	  xmlhttps.onreadystatechange = function() {
+		    if (xmlhttps.readyState == 4 && xmlhttps.status == 200) {
+			       var Arr = JSON.parse(xmlhttps.responseText);
+			       console.log(Arr);
+			       youtubeParse(Arr);
+		    }
+	  }
+	  xmlhttps.open("GET", url, true);
+	  xmlhttps.send();
   </script>
   <body class="text-center">
     <div class="gray_block" id="home">
@@ -477,8 +477,8 @@
             <div>
             &nbsp;
           </div>
-          </div>  
-          
+          </div>
+
           <div class="mastfoot mt-auto">
             <div id="footer">
               <div>
@@ -504,7 +504,7 @@
       </div>
     </div>
 	<div id="youtube-playlist">
-		
+
 	</div>
     <!-- JavaScript
     ================================================== -->
@@ -551,7 +551,7 @@
               tmp = '<div class="card"><img class="card-img-top" src="image/neko' + Math.round(10*Math.random()) + '.png" ><div class="card-body"><a href="' + data[i].link.split("-")[0] + '" target="_blank"><h5 style="color:black;"class="card-title">' + data[i].title + '</h5></a></div></div>';
               document.getElementById("pixnet_card").innerHTML += tmp;
             }
-          } 
+          }
         }
       }
 
@@ -579,17 +579,17 @@
            document.getElementById("photo").innerHTML += '<div class="item"><img class="d-block w-100 mx-auto" style="max-width: 50%;max-height: 100%" src="image/memories/'+i+'.jpg" ></div>';
         }
       }
-      
+
       function writeGoogleform(){
         //https://docs.google.com/forms/d/e/1FAIpQLSdVCeM_2i6lJCDqyV6Iok3VfIP8bU6S8JXiK5tUYiEHwMHkjw/viewform?usp=pp_url&entry.1486611423=Rihanna&entry.608285093=2018/12/05&entry.1030892036=CaliforniaKingBed.mp3&entry.1468224351=CaliforniaKingBed.png
         var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLSdVCeM_2i6lJCDqyV6Iok3VfIP8bU6S8JXiK5tUYiEHwMHkjw/formResponse?usp=pp_url&entry.1486611423=Rihanna&entry.608285093=2018/12/05&entry.1030892036=CaliforniaKingBed.mp3&entry.1468224351=CaliforniaKingBed.png";
         var NewOpen = window.open(MySubmit);
         window.location.assign(document.URL);
       }
-      
+
       function callGoogleform(){
         var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1m9OsUCEB1b3SP2qeTP0nM2vCKwpK6K_qQMesqxK85nU/pubhtml';
-        
+
         Tabletop.init( { key: publicSpreadsheetUrl,
                  callback: createTimeline,
                  simpleSheet: true } )
