@@ -380,8 +380,8 @@
               <h2 style="display:inline;margin-top: 10px;float: left;">放個音樂休息一下</h2>
             </div>
           </header>
-          <div class="inner cover" style="max-width: 60%; float:left;">
-            <div class="card-group">
+          <div class="inner cover" style="max-width: 100%; float:left;" >
+            <div class="card-group" id="recommand_songs">
               <div class="card">
                 <img class="card-img-top" src="image/california.png" alt="Card image cap">
                 <div class="card-body">
@@ -419,9 +419,7 @@
             </div>
           </header>
           <div class="inner cover" style="max-width: 100%; max-height: 100%;float:left;">
-            <video style="max-width: 80%;"controls>
-              <source src="video/Overwatch.mp4" type="video/mp4">
-            </video>
+            <iframe width="1000" height="600" src="https://www.youtube.com/embed/YvCsG_kXkk8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="mastfoot mt-auto">
           </div>
@@ -555,6 +553,24 @@
         var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLSdVCeM_2i6lJCDqyV6Iok3VfIP8bU6S8JXiK5tUYiEHwMHkjw/formResponse?usp=pp_url&entry.1486611423=Rihanna&entry.608285093=2018/12/05&entry.1030892036=CaliforniaKingBed.mp3&entry.1468224351=CaliforniaKingBed.png";
         var NewOpen = window.open(MySubmit);
         window.location.assign(document.URL);
+      }
+
+      function callGoogleform(){
+        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1m9OsUCEB1b3SP2qeTP0nM2vCKwpK6K_qQMesqxK85nU/pubhtml';
+
+        Tabletop.init( { key: publicSpreadsheetUrl,
+                 callback: createTimeline,
+                 simpleSheet: true } )
+      }
+
+      function createTimeline(data, tabletop) {
+        var tmp = 0;
+        var text = "";
+        for (var i=0;i<data.length;i++){
+          tmp = Math.round(10*Math.random());
+          text= '<div class="timeline"><span><img src="image/neko'+tmp+'.png" class="rounded" style="width:50%;height:50%"></span><a href="#photo" class="timeline-content" style="color: black;"><h3 class="title">'+data[i]["title"] + '</h3><p class="description"></p>'+ data[i]["description"] + '</a></div>';
+          document.getElementById("time_line").innerHTML += text;
+        }
       }
 
       function callGoogleform(){
