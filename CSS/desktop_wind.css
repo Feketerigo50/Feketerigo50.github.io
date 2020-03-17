@@ -30,6 +30,12 @@
 	background-image: url('../image/musicbackground.jpg');
 	/*visibility: hidden;*/
 }
+.sticker{
+	width:auto;
+	max-width:50%;
+	height:auto;
+	max-height:70%;
+}
 .heading_font{
 	font-weight: 800;
 	font-size: 36px;
