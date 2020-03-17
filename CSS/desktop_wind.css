@@ -1,0 +1,98 @@
+.gray_block {
+	display: -ms-flexbox;
+	display: block;
+	height: 100%;
+	color: #fff;
+	background-color: #333;
+	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+	box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+	/*visibility: hidden;*/
+}
+.silver_block {
+	display: -ms-flexbox;
+	display: block;
+	/*height: 100%;*/
+	color: #000000;
+	background-color: #DDDDDD;
+	/*visibility: hidden;*/
+}
+.white_block {
+	display: -ms-flexbox;
+	display: block;
+	height: 0%;
+	color: #000000;
+	background-color: #FFFFFF;
+	/*visibility: hidden;*/
+}
+.music_back{
+	height:100%;
+	background-size:100% 100%;
+	background-image: url('../image/musicbackground.jpg');
+	/*visibility: hidden;*/
+}
+.heading_font{
+	font-weight: 800;
+	font-size: 36px;
+	padding-bottom: 10px;
+	margin-right: 10px;
+	float: left;
+	width:15%;
+	text-align: left;
+	display: inline;
+}
+.card_margin{
+	border-top: 5px solid #000000;
+	border-bottom: 5px solid #000000;
+	border-right: 5px solid #000000;
+	border-left: 5px solid #000000;
+	padding-top: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
+	padding-bottom: 1%;
+}
+.card_margin_white{
+	border-top: 5px solid #ffffff;
+	border-bottom: 5px solid #ffffff;
+	border-right: 5px solid #ffffff;
+	border-left: 5px solid #ffffff;
+	padding-top: 1%;
+	padding-right: 1%;
+	padding-left: 1%;
+	padding-bottom: 1%;
+}
+.profile_face{
+	display:inline;width:25%;height:100%;
+	margin:auto;
+	padding:20px;
+}
+.profile_hidden{
+	display:inline;margin-top: 10px;float: left;color:gray;
+}
+.profile_table{
+	width:70%;display:inline;float:right;
+}
+.profile_info{
+	width:45%;float:left;
+	margin:auto;
+	padding:20px;
+}
+.profile_education{
+	width:45%;float:right;
+	margin:auto;
+	padding:20px;
+}
+.contact_google{
+	width:40%;
+	float: left;
+	padding-left: 5%;
+}
+.contact_information{
+	display: inline;
+	color:black;
+	width:40% ;
+	float:right;
+	padding-right: 5%;
+}
+.contact_header{
+	display:inline;margin-top: 10px;float: left;
+}
