@@ -89,15 +89,15 @@
 }
 .contact_google{
 	width:40%;
-	float: left;
-	padding-left: 5%;
+	float:left;
+	margin:auto;
 }
 .contact_information{
 	display: inline;
-	color:black;
-	width:40% ;
-	float:right;
-	padding-right: 5%;
+	color: white;
+	width: 50% ;
+	float: left;
+	margin: auto;
 }
 .contact_header{
 	display:inline;margin-top: 10px;float: left;

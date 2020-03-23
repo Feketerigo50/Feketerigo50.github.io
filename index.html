@@ -25,10 +25,6 @@
 			html{
 				height: 100%;
 				background-color: #fff;
-				/*width: 100%;
-				background-image: url('image/musicbackground.jpg');
-				background-repeat: repeat-y;
-				background-size: contain;*/
 			}
 			body {
 				background-color: #fff;
@@ -236,7 +232,7 @@
 					</div>
 				</header>
 				<div class="inner cover card_margin" style="max-width: 100%; float:left; margin: 5px;">
-					<div class="owl-carousel owl-theme" id="photo">
+					<div class="owl-carousel owl-theme" id="memories">
 					</div>
 				</div>
 				<!--
@@ -328,7 +324,7 @@
 							<h2 class="contact_header mobile_hidden">&nbsp;&nbsp;&nbsp;find me</h2>
 						</div>
 					</header>
-					<div class="inner cover" style="max-width: 100%;float:right;" id="googleiframe">
+					<div class="inner cover" style="max-width: 100%;float:left;" id="googleiframe">
 						<div>
 							&nbsp;
 						</div>
@@ -340,26 +336,26 @@
 						</div>
 						<div class="contact_information">
 							<p id="contact_info">
-								<table class="table table-hover table-borderless" id="profile_table">
+								<table class="table table-hover table-borderless table-striped" id="profile_table">
 									<tbody>
-										<tr class="table-primary">
-											<th scope="row">聯絡手機:</th>
-											<td ></td>
+										<tr>
+											<th scope="row">手機</th>
+											<td class="mobile_hidden"></td>
 											<td >0932-170-205</td>
 										</tr>
-										<tr class="table-info">
-											<th scope="row">電子郵件:</th>
-											<td ></td>
+										<tr>
+											<th scope="row">Email</th>
+											<td class="mobile_hidden"></td>
 											<td >kevinandjack50@gmail.com</td>
 										</tr>
-										<tr class="table-primary">
-											<th scope="row">Line:</th>
-											<td ></td>
+										<tr>
+											<th scope="row">Line</th>
+											<td class="mobile_hidden"></td>
 											<td >helloitisme0729</td>
 										</tr>
-										<tr class="table-info">
-											<th scope="row">IG:</th>
-											<td ></td>
+										<tr>
+											<th scope="row">IG</th>
+											<td class="mobile_hidden"></td>
 											<td >feketerigo0729</td>
 										</tr>
 									</tbody>
@@ -435,7 +431,7 @@
 			*/
 				var i = 0;
 				for (i = 0; i < 12; i++) {
-					document.getElementById("photo").innerHTML += '<div class="item"><img class="d-block w-100 mx-auto" style="max-width: 50%;max-height: 100%" src="image/memories/'+i+'.jpg" ></div>';
+					document.getElementById("memories").innerHTML += '<div class="item"><img class="d-block w-100 mx-auto" style="max-width: 50%;max-height: 100%" src="image/memories/'+i+'.jpg" ></div>';
 				}
 			}
 
@@ -459,7 +455,7 @@
 				var text = "";
 				for (var i=0;i<data.length;i++){
 					tmp = Math.round(10*Math.random());
-					text= '<div class="timeline"><span><img src="image/neko'+tmp+'.png" class="rounded" style="width:50%;height:50%"></span><a href="#photo" class="timeline-content" style="color: black;"><h3 class="title">'+data[i]["title"] + '</h3><p class="description"></p>'+ data[i]["description"] + '</a></div>';
+					text= '<div class="timeline"><span><img src="image/neko'+tmp+'.png" class="rounded" style="width:50%;height:50%"></span><a href="#Photo" class="timeline-content" style="color: black;"><h3 class="title">'+data[i]["title"] + '</h3><p class="description"></p>'+ data[i]["description"] + '</a></div>';
 					document.getElementById("time_line").innerHTML += text;
 				}
 			}
