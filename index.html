@@ -31,7 +31,10 @@
 				display: block;
 				box-shadow: none;
 				font-family: "微軟正黑體";
-			}	
+			}
+			audio{
+				width: 100%;
+			}
 			
 			.main-timeline2{padding-top:50px;overflow:hidden;position:relative}
 			.main-timeline2:before{content:"";width:7px;height:100%;background:#084772;margin:0 auto;position:absolute;top:80px;left:0;right:0}
@@ -62,22 +65,41 @@
 			}
 			@media only screen and (max-width:480px){.main-timeline2 .title{font-size:18px}}
 		</style>
+
+		<style type="text/css">
+		</style>
 	</head>
 	<body class="text-center">
-		<div class="gray_block" id="home">
+		<div class="gray_block" id="Home">
 			<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
 	    		<header class="masthead mb-auto">
 	    			<div class="inner">
 						<h3 class="masthead-brand">&nbsp;&nbsp;Wind's Blog</h3>
 						<nav class="nav nav-masthead justify-content-center">
 							<a class="nav-link" href="#Introduction">Profile</a>
-							<a class="nav-link mobile_hidden" href="#Music">Music</a>
+							<button class="nav-link musicbtn mobile_hidden" onclick="musicControl()">Music</button>
 							<a class="nav-link mobile_hidden" href="#Photo">Photo</a>
 							<a class="nav-link mobile_hidden" href="#Video">Video</a>
 							<a class="nav-link" href="#Contact">Contact</a>
 						</nav>
 					</div>
 				</header>
+
+				<div class="mobile_hidden">
+					<div style="width:80%;display:inline-block;"></div>
+					<div class="dropdown">
+						<div id="music_info" class="card dropdown_content">
+							<img class="card-img-top" src="image/california.png" alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">Heart Like California</h5>
+								<p class="card-text">搭配自介一起聽哦~</p>
+								<audio controls id="music1" loop>
+									<source src="music/Heart Like California.mp3" type="audio/mpeg">
+								</audio>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="inner cover" style="max-width: 80%; margin: 0 auto;">
 					<img src="image/Sticker.jpg" class="rounded-circle mx-auto d-block sticker" alt="...">
@@ -258,44 +280,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="music_back mobile_hidden" id="Music">
-			<div class="white_block">
-				<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-					<header class="masthead mb-auto" >
-						<div class="inner">
-							<h1 class="heading_font">&nbsp;&nbsp;Music&nbsp;/</h1>
-							<h2 style="display:inline;margin-top: 10px;float: left;">放個音樂休息一下</h2>
-						</div>
-					</header>
-					<div class="inner cover" style="max-width: 100%; float:left;" >
-					<div class="card-group" id="recommand_songs">
-						<div class="card">
-							<img class="card-img-top" src="image/california.png" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Heart Like California</h5>
-								<p class="card-text">非常好聽的歌喔~</p>
-								<audio controls id="music1" loop>
-									<source src="music/Heart Like California.mp3" type="audio/mpeg">
-								</audio>
-							</div>
-						</div>
-						<div class="card">
-							<img class="card-img-top" src="image/worldend.png" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">世界末日</h5>
-								<p class="card-text">一樣也很好聽喔~</p>
-								<audio controls id="music2" loop>
-									<source src="music/世界末日.mp3" type="audio/mpeg">
-								</audio>
-							</div>
-						</div>
-					</div>
-					</div>
-					<div class="mastfoot mt-auto">
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="silver_block" id="Video">
 			<div class="gray_block" >
 				<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -393,9 +377,25 @@
 		<!-- JavaScript
 		================================================== -->
 		<script type="text/javascript">
-			console.log("hello");
-			document.getElementById("music1").volume=0.2;
-			document.getElementById("music2").volume=0.2;
+			
+			// dropdown button 
+		    function musicControl() {
+			  document.getElementById("music_info").classList.toggle("show");
+			}
+
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(event) {
+				if (!event.target.matches('.musicbtn')) {
+					var dropdowns = document.getElementsByClassName("dropdown_content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+						}
+					}
+				}
+			}
 
 			$(document).ready(function() {
 				var owl = $('.owl-carousel');
