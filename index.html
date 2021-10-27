@@ -20,7 +20,7 @@
 
 		<script src="JS/owlcarousel/jquery.min.js"></script>
 		<script src="JS/owlcarousel/owl.carousel.js"></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js'></script>
 		<style type="text/css">
 			html{
 				height: 100%;
@@ -442,15 +442,22 @@
 				window.location.assign(document.URL);
 			}
 
-			function callGoogleform(){
-				var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1m9OsUCEB1b3SP2qeTP0nM2vCKwpK6K_qQMesqxK85nU/pubhtml';
+			function callHistoryform(){
+				var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpovXI7u53ah1YvPrjiVO_8DeBcdZwaAEJpBuHLwUAzsycspJ7HpJI2b6TobrOQzPHpO3I-gogvgy/pub?output=csv';
 
-				Tabletop.init( { key: publicSpreadsheetUrl,
-								callback: createTimeline,
-								simpleSheet: true } )
+				Papa.parse("data/history.csv", {
+					download: true,
+					header: true,
+					dynamicTyping: true,
+					complete: function(results){
+						var data = results.data;
+						console.log(data);
+					}
+				})
+
 			}
 
-			function createTimeline(data, tabletop) {
+			function createTimeline(data) {
 				var tmp = 0;
 				var text = "";
 				for (var i=0;i<data.length;i++){
@@ -460,25 +467,9 @@
 				}
 			}
 
-			function callGoogleform(){
-				var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1m9OsUCEB1b3SP2qeTP0nM2vCKwpK6K_qQMesqxK85nU/pubhtml';
-
-				Tabletop.init( { key: publicSpreadsheetUrl,
-								callback: createTimeline,
-								simpleSheet: true } )
-			}
-
-			function createTimeline(data, tabletop) {
-				var tmp = 0;
-				var text = "";
-				for (var i=0;i<data.length;i++){
-					tmp = Math.round(10*Math.random());
-					text= '<div class="timeline"><span><img src="image/neko'+tmp+'.png" class="rounded" style="width:50%;height:50%"></span><a href="#photo" class="timeline-content" style="color: black;"><h3 class="title">'+data[i]["title"] + '</h3><p class="description"></p>'+ data[i]["description"] + '</a></div>';
-					document.getElementById("time_line").innerHTML += text;
-				}
-			}
+			
 			window.addEventListener('DOMContentLoaded', setPhoto);
-			window.addEventListener('DOMContentLoaded', callGoogleform);
+			window.addEventListener('DOMContentLoaded', callHistoryform);
 		</script>
 	</body>
 </html>
