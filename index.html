@@ -445,7 +445,7 @@
 			function callHistoryform(){
 				var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpovXI7u53ah1YvPrjiVO_8DeBcdZwaAEJpBuHLwUAzsycspJ7HpJI2b6TobrOQzPHpO3I-gogvgy/pub?output=csv';
 
-				Papa.parse("data/history.csv", {
+				Papa.parse(publicSpreadsheetUrl, {
 					download: true,
 					header: true,
 					dynamicTyping: true,
