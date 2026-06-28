@@ -1,456 +1,167 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<link rel="icon" href="image/logo.jpg">
-		<title>若林的家</title>
-		<!-- Bootstrap core CSS -->
-		<link href="CSS/bootstrap/bootstrap.min.css" rel="stylesheet">
-		<!-- Custom styles for this template -->
-		<link href="CSS/bootstrap/cover.css" rel="stylesheet">
-		<link href="CSS/owlcarousel/owl.carousel.min.css" rel="stylesheet">
-		<link href="CSS/owlcarousel/owl.theme.default.min.css" rel="stylesheet">
-		
-		<link type="text/css" href="CSS/footer.css" rel="stylesheet">
-		<link type="text/css" href="CSS/desktop_wind.css" rel="stylesheet">
-		<link type="text/css" href="CSS/mobile_wind.css" rel="stylesheet">
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="董欣謙 Evan Tung 個人網站 — 工作版與休閒版">
+  <link rel="icon" href="image/logo.jpg">
+  <title>若林的家 · Evan Tung</title>
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body data-mode="life">
+  <nav class="site-nav">
+    <a class="brand" href="#top">Evan Tung</a>
+    <div class="nav-links">
+      <span class="mode-work">
+        <a href="#work-about">About</a>
+        <a href="#work-skills">Skills</a>
+        <a href="#work-experience">Experience</a>
+        <a href="#work-research">Research</a>
+        <a href="#work-contact">Contact</a>
+      </span>
+      <span class="mode-life">
+        <a href="#life-about">About</a>
+        <a href="#life-video">Video</a>
+        <a href="#life-stream">Stream</a>
+        <a href="#life-timeline">Timeline</a>
+        <a href="#life-contact">Contact</a>
+      </span>
+    </div>
+    <div class="mode-toggle" role="group" aria-label="模式切換">
+      <button type="button" data-mode="work" aria-pressed="false">工作版</button>
+      <button type="button" data-mode="life" aria-pressed="true" class="active">休閒版</button>
+    </div>
+  </nav>
 
-		<script src="JS/owlcarousel/jquery.min.js"></script>
-		<script src="JS/owlcarousel/owl.carousel.js"></script>
-		<script src='JS/PapaParse-5.0.2/papaparse.min.js'></script>
-		<style type="text/css">
-			html{
-				height: 100%;
-				background-color: #fff;
-			}
-			body {
-				background-color: #fff;
-				display: block;
-				box-shadow: none;
-				font-family: "微軟正黑體";
-			}
-			audio{
-				width: 100%;
-			}
-			
-			.main-timeline2{padding-top:50px;overflow:hidden;position:relative}
-			.main-timeline2:before{content:"";width:7px;height:100%;background:#084772;margin:0 auto;position:absolute;top:80px;left:0;right:0}
-			.main-timeline2 .timeline{width:50%;float:left;padding:20px 60px;border-top:7px solid #084772;border-right:7px solid #084772;border-radius:0 30px 0 0;position:relative;right:-3.5px}
-			.main-timeline2 .icon{display:block;width:50px;height:50px;line-height:50px;border-radius:50%;background:#e84c47;border:1px solid #fff;text-align:center;font-size:25px;color:#fff;box-shadow:0 0 0 2px #e84c47;position:absolute;top:-30px;left:0}
-			.main-timeline2 .timeline-content{display:block;padding:30px 10px 10px;border-radius:20px;background:#e84c47;color:#fff;position:relative}
-			.main-timeline2 .timeline-content:hover{text-decoration:none;color:#fff}
-			.main-timeline2 .timeline-content:after,.main-timeline2 .timeline-content:before{content:"";display:block;width:10px;height:50px;border-radius:10px;background:#e84c47;border:1px solid #fff;position:absolute;top:-35px;left:50px}
-			.main-timeline2 .timeline-content:after{left:auto;right:50px}
-			.main-timeline2 .title{font-size:24px;margin:0}
-			.main-timeline2 .description{font-size:15px;letter-spacing:1px;margin:0 0 5px}
-			.main-timeline2 .timeline:nth-child(2n){border-right:none;border-left:7px solid #084772;border-radius:30px 0 0;right:auto;left:-3.5px}
-			.main-timeline2 .timeline:nth-child(2n) .icon{left:auto;right:0;box-shadow:0 0 0 2px #4bd9bf}
-			.main-timeline2 .timeline:nth-child(2){margin-top:130px}
-			.main-timeline2 .timeline:nth-child(odd){margin:-130px 0 30px}
-			.main-timeline2 .timeline:nth-child(even){margin-bottom:80px}
-			.main-timeline2 .timeline:first-child,.main-timeline2 .timeline:last-child:nth-child(even){margin:0 0 30px}
-			.main-timeline2 .timeline:nth-child(2n) .icon,.main-timeline2 .timeline:nth-child(2n) .timeline-content,.main-timeline2 .timeline:nth-child(2n) .timeline-content:after,.main-timeline2 .timeline:nth-child(2n) .timeline-content:before{background:#4bd9bf}
-			.main-timeline2 .timeline:nth-child(3n) .icon,.main-timeline2 .timeline:nth-child(3n) .timeline-content,.main-timeline2 .timeline:nth-child(3n) .timeline-content:after,.main-timeline2 .timeline:nth-child(3n) .timeline-content:before{background:#ff9e09}
-			.main-timeline2 .timeline:nth-child(3n) .icon{box-shadow:0 0 0 2px #ff9e09}
-			.main-timeline2 .timeline:nth-child(4n) .icon,.main-timeline2 .timeline:nth-child(4n) .timeline-content,.main-timeline2 .timeline:nth-child(4n) .timeline-content:after,.main-timeline2 .timeline:nth-child(4n) .timeline-content:before{background:#3ebae7}
-			.main-timeline2 .timeline:nth-child(4n) .icon{box-shadow:0 0 0 2px #3ebae7}
-			.main-timeline2 .timeline:nth-child(5n) .icon,.main-timeline2 .timeline:nth-child(5n) .timeline-content,.main-timeline2 .timeline:nth-child(5n) .timeline-content:after,.main-timeline2 .timeline:nth-child(5n) .timeline-content:before{background:#CCBBFF}
-			.main-timeline2 .timeline:nth-child(3n) .icon{box-shadow:0 0 0 2px #ff9e09}
-			@media only screen and (max-width:767px){.main-timeline2:before{left:0;right:auto}
-				.main-timeline2 .timeline,.main-timeline2 .timeline:nth-child(even),.main-timeline2 .timeline:nth-child(odd){width:100%;float:none;padding:20px 30px;margin:0 0 30px;border-right:none;border-left:7px solid #084772;border-radius:30px 0 0;right:auto;left:0}
-				.main-timeline2 .icon{left:auto;right:0}
-			}
-			@media only screen and (max-width:480px){.main-timeline2 .title{font-size:18px}}
-		</style>
+  <header class="hero" id="top">
+    <img id="hero-avatar" class="hero-avatar" src="image/Sticker.jpg" alt="">
+    <h1 id="hero-name">董欣謙</h1>
+    <p class="name-en" id="hero-name-en">Evan Tung</p>
+    <p class="tagline mode-work" id="work-tagline"></p>
+    <p class="tagline mode-life" id="life-tagline"></p>
+    <p class="quote mode-life" id="life-quote"></p>
+  </header>
 
-		<style type="text/css">
-		</style>
-	</head>
-	<body class="text-center">
-		<div class="gray_block" id="Home">
-			<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-	    		<header class="masthead mb-auto">
-	    			<div class="inner">
-						<h3 class="masthead-brand">&nbsp;&nbsp;Cyrus Tung's Blog</h3>
-						<nav class="nav nav-masthead justify-content-center">
-							<a class="nav-link" href="#Introduction">Profile</a>
-							<button class="nav-link musicbtn mobile_hidden" onclick="musicControl()">Music</button>
-							<a class="nav-link mobile_hidden" href="#Photo">Photo</a>
-							<a class="nav-link mobile_hidden" href="#Video">Video</a>
-							<a class="nav-link" href="#Contact">Contact</a>
-						</nav>
-					</div>
-				</header>
+  <!-- Work mode -->
+  <section class="section mode-work" id="work-about">
+    <div class="section-inner">
+      <h2 class="section-title">About</h2>
+      <p class="section-subtitle">Professional summary</p>
+      <p id="work-about"></p>
+    </div>
+  </section>
 
-				<div class="mobile_hidden">
-					<div style="width:80%;display:inline-block;"></div>
-					<div class="dropdown">
-						<div id="music_info" class="card dropdown_content">
-							<img class="card-img-top" src="image/california.png" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Heart Like California</h5>
-								<p class="card-text">搭配自介一起聽哦~</p>
-								<audio controls id="music1" loop>
-									<source src="music/Heart Like California.mp3" type="audio/mpeg">
-								</audio>
-							</div>
-						</div>
-					</div>
-				</div>
+  <section class="section section-alt mode-work" id="work-skills">
+    <div class="section-inner">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technical stack &amp; courses</p>
+      <div class="skill-tags" id="work-skill-tags"></div>
+      <h3 style="margin-top:1.75rem;font-size:1rem;">Related courses</h3>
+      <ul id="work-courses"></ul>
+    </div>
+  </section>
 
-				<div class="inner cover" style="max-width: 80%;max-height:80%; margin: 0 auto;">
-					<img src="image/Sticker.jpg" class="rounded-circle mx-auto d-block sticker" alt="...">
-					<br>
-					<h1 class="cover-heading" style="font-family:微軟正黑體;">董&nbsp;欣&nbsp;謙</h1>
-					<br>
-					<h3 class="lead">
-						Sometimes, people that love each other can hurt each other's feelings without meaning to.
-					</h3>
-				</div>
+  <section class="section mode-work" id="work-experience">
+    <div class="section-inner">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Work &amp; projects</p>
+      <div class="card-grid" id="work-experience-list"></div>
+    </div>
+  </section>
 
-				<div class="mastfoot mt-auto">
-					<p class="lead">
-						<a href="#Introduction" class="btn btn-lg btn-secondary">More about me</a>
-					</p>
-				</div>
-				<br>
-			</div>
-		</div>
-		<div class="silver_block" id="Introduction">
-			<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-				<header class="masthead mb-auto" style="border-bottom: 1px solid #b3b3b3;">
-					<div class="inner">
-						<h1 class="heading_font">&nbsp;&nbsp;Profile&nbsp;/</h1>
-						<h2 class="profile_hidden mobile_hidden">about me</h2>
-					</div>
-				</header>
-				<div class="inner cover" style="max-width: 100%; float:left; margin: 5px;">
-					<img src="image/profilecut.png" class="rounded float-left profile_face mobile_hidden" >
-					<div class="profile_table">
-						<div class="profile_info">
-							<table class="table table-striped table-dark table-hover" style="word-break:break-all; word-wrap:break-all;" id="profile_table">
-								<thead>
-									<th scope="col" colspan="6">
-										<h2 class="text-center">Information</h2>
-									</th>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">本名</th>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-										<td >董欣謙</td>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-									</tr>
-									<tr>
-										<th scope="row">綽號</th>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-										<td >風若林</td>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-									</tr>
-									<tr>
-										<th scope="row">身高</th>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-										<td >174 ~ 175</td>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-									</tr>
-									<tr>
-										<th scope="row">星座</th>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-										<td >獅子座</td>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-									</tr>
-									<tr>
-										<th scope="row">生日</th>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-										<td>1998/07/29</td>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-									</tr>
-									<tr>
-										<th scope="row">興趣</th>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-										<td >騎車、聽音樂</td>
-										<td class="mobile_hidden"></td>
-										<td class="mobile_hidden"></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-				        <div class="profile_education mobile_hidden">
-							<table class="table table-striped table-dark table-hover" id="profile_table">
-								<thead >
-									<th scope="col" colspan="3">
-										<h2 class="text-center cover-heading">Experience</h2>
-									</th>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">大成國中</th>
-										<td class="mobile_hidden"></td>
-										<td >資優班第一名畢業</td>
-									</tr>
-									<tr>
-										<th scope="row">武陵高中</th>
-										<td class="mobile_hidden"></td>
-										<td >校園民歌創作演唱社26屆吉祥物</td>
-									</tr>
-									<tr>
-										<th scope="row">中興大學</th>
-										<td class="mobile_hidden"></td>
-										<td >109級資工系學會長</td>
-									</tr>
-									<tr>
-										<th scope="row">交通大學</th>
-										<td class="mobile_hidden"></td>
-										<td >碩士HCI研究生</td>
-									</tr>
-									<tr>
-										<th scope="row">工作經歷</th>
-										<td class="mobile_hidden"></td>
-										<td >桃園立人補習班隨班導師</td>
-									</tr>
-									<tr>
-										<th scope="row">&nbsp;</th>
-										<td class="mobile_hidden"></td>
-										<td >創意細胞CellDesign</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-		    <div class="mastfoot mt-auto">
-			</div>
-			</div>
-		</div>
-		<div class="container" style="display: block;">
-			<h1 style="color:#000000;">What I Have Been</h1>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="main-timeline2" id="time_line">
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- <div class="silver_block mobile_hidden" id="Photo">
-			<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-				<header class="masthead mb-auto" style="border-bottom: 1px solid #b3b3b3;">
-					<div class="inner">
-						<h1 class="heading_font">&nbsp;回&nbsp;顧&nbsp;時&nbsp;光</h1>
-						<h4 style="display:inline;margin-top: 10px;float: right;">1998 ~ 2018&nbsp;&nbsp;</h4>
-					</div>
-				</header>
-				<div class="inner cover card_margin" style="max-width: 100%; float:left; margin: 5px;">
-					<div class="owl-carousel owl-theme" id="memories">
-					</div>
-				</div>
-				<div class="mastfoot mt-auto">
-				</div>
-			</div>
-		</div> -->
-		<div class="silver_block" id="Video">
-			<div class="silver_block" >
-				<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-					<header class="masthead mb-auto" >
-						<div class="inner">
-							<h1 class="heading_font">&nbsp;&nbsp;Video&nbsp;/</h1>
-							<h2 class="contact_header mobile_hidden">近期若林的自信之作</h2>
-						</div>
-					</header>
-					<div class="inner cover" style="max-width: 100%; max-height: 100%;float:left;">
-						<div class="video-container">
-							<iframe width="850" height="560" src="https://www.youtube.com/embed/sgtYK-uUrm4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-					</div>
-					<div class="mastfoot mt-auto">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="video_back " id="Contact">
-			<div class="gray_block" >
-				<div class="container-fluid d-flex w-100 h-100 p-3 mx-auto flex-column">
-					<header class="masthead mb-auto" >
-						<div class="inner">
-							<h1 class="heading_font">&nbsp;&nbsp;Contact&nbsp;/</h1>
-							<h2 class="contact_header mobile_hidden">&nbsp;&nbsp;&nbsp;find me</h2>
-						</div>
-					</header>
-					<div class="inner cover" style="max-width: 100%;float:left;" id="googleiframe">
-						<div>
-							&nbsp;
-						</div>
-						<div class="contact_google">
-							<iframe id="googlemap"src="http://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=24.123538, 120.675619&z=14&t=p&output=embed" width="304" height="228"></iframe>
-							<p>
-								<h4> Where I live </h4>
-							</p>
-						</div>
-						<div class="contact_information">
-							<p id="contact_info">
-								<table class="table table-hover table-borderless table-striped" id="profile_table">
-									<tbody>
-										<tr>
-											<th scope="row">手機</th>
-											<td class="mobile_hidden"></td>
-											<td >Samsong Galaxy A8 (2016)</td>
-										</tr>
-										<tr>
-											<th scope="row">Email</th>
-											<td class="mobile_hidden"></td>
-											<td >kevinandjack50@gmail.com</td>
-										</tr>
-										<tr>
-											<th scope="row">Line</th>
-											<td class="mobile_hidden"></td>
-											<td >可以寄mail給我我再告訴你喔!</td>
-										</tr>
-										<tr>
-											<th scope="row">IG</th>
-											<td class="mobile_hidden"></td>
-											<td >feketerigo0729</td>
-										</tr>
-									</tbody>
-								</table>
-							</p>
-						</div>
-						<div>
-							&nbsp;
-						</div>
-					</div>
-					<div class="mastfoot mt-auto">
-						<div id="footer">
-							<div style="width:100%;">
-								<p>© 2020 by Cyrus Tung. All rights reserved.</p>
-								<ul>
-									<li>
-										<a href="https://www.instagram.com/feketerigo0729/" style="background: url(image/icons/icon-instagram.png);" id="instagram">instagram</a>
-									</li>
-									<li>
-										<a href="https://www.facebook.com/profile.php?id=100004193891518" target="_blank" style="background: url(image/icons/icon-facebook.jpg);" id="facebook">facebook</a>
-									</li>
-									<li>
-										<a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=kevinandjack50@gmail.com" style="background: url(image/icons/icon-gmail.png);" id="gmail">gmail</a>
-									</li>
-									<!-- <li>
-										<a href="#Contact" style="background: url(image/icons/icon-pinterest.jpg);" id="pinterest">pinterest</a>
-									</li> -->
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- JavaScript
-		================================================== -->
-		<script type="text/javascript">
-			
-			// dropdown button 
-		    function musicControl() {
-			  document.getElementById("music_info").classList.toggle("show");
-			}
+  <section class="section section-alt mode-work" id="work-education">
+    <div class="section-inner">
+      <h2 class="section-title">Education</h2>
+      <div class="card-grid" id="work-education"></div>
+    </div>
+  </section>
 
-			// Close the dropdown if the user clicks outside of it
-			window.onclick = function(event) {
-				if (!event.target.matches('.musicbtn')) {
-					var dropdowns = document.getElementsByClassName("dropdown_content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-						var openDropdown = dropdowns[i];
-						if (openDropdown.classList.contains('show')) {
-							openDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
+  <section class="section mode-work" id="work-research">
+    <div class="section-inner">
+      <h2 class="section-title">Research</h2>
+      <div class="card" id="work-research"></div>
+    </div>
+  </section>
 
-			$(document).ready(function() {
-				var owl = $('.owl-carousel');
-					owl.owlCarousel({
-					items: 1,
-					loop: true,
-					margin: 10,
-					autoplay: true,
-					autoplayTimeout: 2000,
-					autoplayHoverPause: true
-				});
-			})
+  <section class="section section-alt mode-work" id="work-projects">
+    <div class="section-inner">
+      <h2 class="section-title">Side Projects</h2>
+      <div class="card-grid" id="work-projects"></div>
+    </div>
+  </section>
 
+  <section class="section mode-work" id="work-leadership">
+    <div class="section-inner">
+      <h2 class="section-title">Leadership &amp; Awards</h2>
+      <div class="card" id="work-leadership"></div>
+    </div>
+  </section>
 
-			function myGoogle() {
-				var x = document.getElementById("googlemap");
-				x.setAttribute("src", "https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=24.123538, 120.675619&z=14&t=p&output=embed");
-				x.setAttribute("width", "304");
-				x.setAttribute("height", "228");
-				x.setAttribute("alt", "The Pulpit Rock");
-				document.getElementById("googleiframe").appendChild(x);
-			}
+  <section class="section section-alt mode-work" id="work-contact">
+    <div class="section-inner">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-card" id="work-contact-body"></div>
+    </div>
+  </section>
 
-			function setPhoto(){
-			/*
-			photo_count += gain;
-			if( photo_count < 0 ){
-			  photo_count = 10;
-			}else if( photo_count > 10){
-			  photo_count = 0;
-			}
-			document.getElementById("photo").innerHTML = '<img class="d-block w-100 mx-auto" style="max-width: 50%;max-height: 100%" src="image/memories/'+photo_count+'.jpg" >';
-			*/
-				var i = 0;
-				for (i = 0; i < 12; i++) {
-					document.getElementById("memories").innerHTML += '<div class="item"><img class="d-block w-100 mx-auto" style="max-width: 50%;max-height: 100%" src="image/memories/'+i+'.jpg" ></div>';
-				}
-			}
+  <!-- Life mode -->
+  <section class="section mode-life" id="life-about">
+    <div class="section-inner">
+      <h2 class="section-title">About me</h2>
+      <p class="section-subtitle">Profile</p>
+      <table class="info-table" id="life-about-table"></table>
+      <p id="life-summary" style="margin-top:1.25rem;"></p>
+      <div class="card-grid" id="life-highlights" style="margin-top:1.5rem;"></div>
+    </div>
+  </section>
 
-			function writeGoogleform(){
-			//https://docs.google.com/forms/d/e/1FAIpQLSdVCeM_2i6lJCDqyV6Iok3VfIP8bU6S8JXiK5tUYiEHwMHkjw/viewform?usp=pp_url&entry.1486611423=Rihanna&entry.608285093=2018/12/05&entry.1030892036=CaliforniaKingBed.mp3&entry.1468224351=CaliforniaKingBed.png
-				var MySubmit = "https://docs.google.com/forms/d/e/1FAIpQLSdVCeM_2i6lJCDqyV6Iok3VfIP8bU6S8JXiK5tUYiEHwMHkjw/formResponse?usp=pp_url&entry.1486611423=Rihanna&entry.608285093=2018/12/05&entry.1030892036=CaliforniaKingBed.mp3&entry.1468224351=CaliforniaKingBed.png";
-				var NewOpen = window.open(MySubmit);
-				window.location.assign(document.URL);
-			}
+  <section class="section section-alt mode-life" id="life-video">
+    <div class="section-inner">
+      <h2 class="section-title">YouTube</h2>
+      <p class="section-subtitle">精選影片 · 更多內容請到頻道</p>
+      <div class="embed-wrap">
+        <iframe id="life-youtube" title="YouTube video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="link-row">
+        <a class="btn btn-primary" id="life-youtube-link" href="#" target="_blank" rel="noopener">前往 YouTube 頻道</a>
+      </div>
+    </div>
+  </section>
 
-			function callHistoryform(){
-				var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLpovXI7u53ah1YvPrjiVO_8DeBcdZwaAEJpBuHLwUAzsycspJ7HpJI2b6TobrOQzPHpO3I-gogvgy/pub?output=csv';
+  <section class="section mode-life" id="life-stream">
+    <div class="section-inner">
+      <h2 class="section-title">Twitch</h2>
+      <p class="section-subtitle">直播 · 互動 · 業餘創作</p>
+      <div class="twitch-embed" id="twitch-embed"></div>
+      <div class="link-row">
+        <a class="btn btn-primary" id="life-twitch-link" href="#" target="_blank" rel="noopener">前往 Twitch 頻道</a>
+      </div>
+    </div>
+  </section>
 
-				Papa.parse(publicSpreadsheetUrl, {
-					download: true,
-					header: true,
-					dynamicTyping: true,
-					complete: function(results){
-						var data = results.data;
-						createTimeline(data);
-					}
-				})
+  <section class="section section-alt mode-life" id="life-timeline">
+    <div class="section-inner">
+      <h2 class="section-title">What I Have Been</h2>
+      <p class="section-subtitle">生活時間軸</p>
+      <div class="timeline" id="life-timeline-list"></div>
+    </div>
+  </section>
 
-			}
+  <section class="section mode-life" id="life-contact">
+    <div class="section-inner">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-card" id="life-contact-body"></div>
+    </div>
+  </section>
 
-			function createTimeline(data) {
-				var tmp = 0;
-				var text = "";
-				for (var i=0;i<data.length;i++){
-					tmp = Math.round(10*Math.random());
-					text= '<div class="timeline"><span><img src="image/neko'+tmp+'.png" class="rounded" style="width:50%;height:50%"></span><a href="#Photo" class="timeline-content" style="color: black;"><h3 class="title">'+data[i]["title"] + '</h3><p class="description"></p>'+ data[i]["description"] + '</a></div>';
-					document.getElementById("time_line").innerHTML += text;
-				}
-			}
+  <footer class="site-footer">
+    <p>© <span id="footer-year"></span> Evan Tung. All rights reserved.</p>
+    <div class="footer-links">
+      <a id="footer-github" href="#" target="_blank" rel="noopener">GitHub</a>
+      <a id="footer-email" href="#">Email</a>
+    </div>
+  </footer>
 
-			
-			window.addEventListener('DOMContentLoaded', setPhoto);
-			window.addEventListener('DOMContentLoaded', callHistoryform);
-		</script>
-	</body>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>

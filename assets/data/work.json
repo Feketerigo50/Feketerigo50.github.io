@@ -1,0 +1,79 @@
+{
+  "tagline": "Software Engineer · NLP · Backend",
+  "about": "國立陽明交通大學資工碩士，專注於對話系統、LLM 應用與後端開發。曾帶領 LINE Fresh 校園 NLP 專案，並有 IJHCI 論文發表經驗。",
+  "skills": [
+    "Python",
+    "C",
+    "C++",
+    "JavaScript",
+    "LangChain",
+    "BERT",
+    "Docker",
+    "PHP"
+  ],
+  "courses": [
+    "Data Structure",
+    "Algorithm",
+    "UI/UX Design"
+  ],
+  "experience": [
+    {
+      "title": "LINE Fresh Campus Project",
+      "period": "2023",
+      "role": "Lead NLP Developer",
+      "highlights": [
+        "優化對話流程，將使用者放棄率從 82% 降至 23%",
+        "系統於陽明交大上線，使用者從 2,000 成長至近 10,000",
+        "以 LangChain 實作自訂 LLM agent workflow",
+        "整合 fine-tuned BERT、Azure CLU、ChatGPT 與 RAG 做意圖辨識",
+        "帶領小型開發團隊，負責架構決策與 PR review"
+      ]
+    },
+    {
+      "title": "Cell Design",
+      "period": "Part-time",
+      "role": "Backend Developer",
+      "highlights": [
+        "開發內部資料庫管理介面",
+        "建置自動化爬蟲與資料分析流程",
+        "使用 Docker、NAS、Python、PHP、JavaScript"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "National Yang Ming Chiao Tung University",
+      "degree": "Master of Science in Computer Science and Engineering",
+      "period": "Sep 2020 – Jan 2025"
+    },
+    {
+      "school": "National Chung Hsing University",
+      "degree": "Bachelor of Science in Computer Science and Engineering",
+      "period": "Sep 2016 – Jun 2020"
+    }
+  ],
+  "research": {
+    "title": "Predicting and Exploring Abandonment Signals in a Banking Task-Oriented Chatbot Service",
+    "journal": "International Journal of Human–Computer Interaction (IJHCI)",
+    "highlights": [
+      "以 fine-tuned BERT 預測使用者放棄行為，F1-score 達 0.89",
+      "運用 LIME 做可解釋 AI，協助設計改善"
+    ]
+  },
+  "projects": [
+    {
+      "title": "LLM-Based Automated Online Radio Interactive Chatbot",
+      "stack": "Python · Twitch · LLM",
+      "description": "Twitch 互動式串流聊天機器人，自動播放 VITs、以 LLM 回應觀眾並說故事，24/7 運行。"
+    }
+  ],
+  "leadership": [
+    "InnoServe Awards 2018 — 資訊應用組第二名（網軍帳號偵測系統）",
+    "中興大學資工系學會長、學院學生代表",
+    "協辦 Garena 校園電競賽等跨校活動",
+    "TOEIC Golden Certificate（2025/8/31）"
+  ],
+  "contact": {
+    "phone": ""
+  }
+}
